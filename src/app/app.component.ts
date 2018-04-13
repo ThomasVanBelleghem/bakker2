@@ -12,8 +12,8 @@ import { ProductDetailsPage} from '../pages/product-details/product-details';
 import {SettingPage} from '../pages/setting/setting'
 
 import{ AuthProvider} from '../providers/auth/auth';
-import{CartServiceProvider} from '../providers/cart-service/cart-service';
-import { SharedServiceProvider } from '../providers/shared-service/shared-service';
+
+
 
 @Component({
   templateUrl: 'app.html'

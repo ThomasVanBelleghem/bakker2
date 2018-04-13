@@ -1,43 +1,55 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
-import { AngularFireDatabase } from 'angularfire2/database';
-import {FirebaseListObservable} from 'angularfire2/database-deprecated';
-import {CartServiceProvider} from '../../providers/cart-service/cart-service';
 import {AuthProvider} from '../../providers/auth/auth';
+import { Observable } from 'rxjs/Observable';
+import {FireDataServiceProvider} from '../../providers/fire-data-service/fire-data-service';
+
 
 
 @IonicPage()
 @Component({
   selector: 'page-cart',
   templateUrl: 'cart.html',
-  providers: [CartServiceProvider,AuthProvider]
+  providers: [AuthProvider]
 })
 export class CartPage {
-
-  cart: AngularFireList<any>;
+  product:any;
+  carts: Observable<any[]>;
   constructor(public navCtrl: NavController,
                public navParams: NavParams,
-               public cartServiceProvider : CartServiceProvider,
-               public authProvider: AuthProvider
+               public authProvider: AuthProvider, 
+               private db : FireDataServiceProvider  
               ) {
-                cartServiceProvider.loadCartList(this.authProvider.getLoggedUID());
-                this.cart = this.cartServiceProvider.cartItems;
+              
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
+    this.carts = this.db.getCart(this.authProvider.getLoggedUID());
+    this.carts.subscribe((result) => {
+      console.log("got this data from provider", result);
+    }, (error) => {
+      console.log("Didn't get any data", error);
+    })
   }
+
+
+  makeCart(){
+    let product = "test";
+
+    let cart ={
+      productCar:product
+    }
   
+    this.db.updateCart(this.authProvider.getLoggedUID(),cart);
+  }
   /*increment(item : any) : void {
     this.cartServiceProvider.incrementCartItem(this.authProvider.getLoggedUID(),item);
   }
   decrement(item : any) : void {
     this.cartServiceProvider.decrementCartItem(this.authProvider.getLoggedUID(),item);
   } 
-  remove(item : any) : void {
-    this.cartServiceProvider.removeCartItem(this.authProvider.getLoggedUID(),item.$key);
-  }*/
+  */
   goBack() {
     this.navCtrl.pop();
 }

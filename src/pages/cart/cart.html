@@ -11,14 +11,14 @@
   
   <ion-content class="bg-style">
     
-      <ion-list>
+    <!--  <ion-list>
 
-      <ion-item  *ngFor="let item of cart">
+      <ion-item  *ngFor="let cart of carts">
           <ion-thumbnail item-left>            
-          <img src="{{item.image}}">
+          <img src="{{cart.image}}">
           </ion-thumbnail>
-          <h2>{{item.name}}</h2>
-          <p>${{item.price}} x {{item.quantity}} = ${{item.price * item.quantity}}</p>
+          <h2>{{cart.name}}</h2>
+          <p>${{cart.price}} x {{cart.quantity}} = ${{cart.price * cart.quantity}}</p>
           
           <button ion-button clear item-right (click)="increment(item)" >
             <ion-icon color="danger" style=" font-size: 25px;" name="ios-arrow-dropup-circle"></ion-icon>
@@ -39,7 +39,8 @@
       </ion-item>
         
       <ion-item *ngIf="!(cart | async)?.length" >
-        <h2 class="center">Cart is empty</h2>       
+        <h2 class="center">Cart is empty</h2>  
+               
       </ion-item>
       
       <button fixed ion-button icon-start block color="light" *ngIf="(cart | async)?.length" (click)="checkout()">
@@ -47,7 +48,22 @@
           Checkout
       </button>    
 
-      </ion-list>
+      </ion-list> -->
+      <ion-list>
+    
+          <ion-item *ngFor="let cart of carts | async">
+                {{cart}}
+              
+  
+            </ion-item>
+          
+        </ion-list>
+<ion-list>
+    <button fixed ion-button icon-start block color="light" (click)="makeCart()">
+        <ion-icon name="ios-cart"></ion-icon>
+        cart toevoegen
+    </button>  
+</ion-list>
 
   
   </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import {AuthProvider} from '../../providers/auth/auth';
 import {FireDataServiceProvider} from '../../providers/fire-data-service/fire-data-service'
 import { Observable } from 'rxjs/Observable';
@@ -32,7 +32,7 @@ export class SettingPage {
     targetWidth:500
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,private camera:Camera,
-    private db : FireDataServiceProvider,  public authService: AuthProvider,) {
+    private db : FireDataServiceProvider,  private toastCtrl:ToastController, public authService: AuthProvider,) {
 
      
   }
@@ -62,22 +62,29 @@ export class SettingPage {
       // Handle error
     });
   }
+  
 
-  newEmail(email:string){
-    var user = this.authService.afAuth.auth.currentUser;
-    user.updateEmail(email).then(function(){
-      console.log("succes");
-    }).catch(function(error){
-      console.log("error");
-    })
-  }
   newPass(Password:string){
     var user = this.authService.afAuth.auth.currentUser;
     user.updatePassword(Password).then(function(){
       console.log("succes");
+      this.presentToast("test");
     }).catch(function(error){
       console.log("error");
     })
+  }
+  presentToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast', message);
+    });
+
+    toast.present();
   }
 
 

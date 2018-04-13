@@ -26,8 +26,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 //import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated'
 import { FireDataServiceProvider } from '../providers/fire-data-service/fire-data-service';
 import { ProductDetailsPage } from '../pages/product-details/product-details';
-import { SharedServiceProvider } from '../providers/shared-service/shared-service';
-import { CartServiceProvider } from '../providers/cart-service/cart-service';
+
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
 
 import { Camera } from '@ionic-native/camera';
@@ -83,8 +82,7 @@ var config = {
     Camera,
      LaunchNavigator,
     FireDataServiceProvider,
-    SharedServiceProvider,
-    CartServiceProvider
+
   ]
 })
 export class AppModule {}
