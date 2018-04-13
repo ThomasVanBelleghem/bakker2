@@ -51,6 +51,9 @@ export class AuthProvider {
     this.afAuth.auth.signOut();
     this.isLoggedIn = false;
   }
+  getLoggedUID() : string{
+    return this.afAuth.auth.currentUser.uid;
+  }
 
   presentToast(message: string) {
     let toast = this.toastCtrl.create({

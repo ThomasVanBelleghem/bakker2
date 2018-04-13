@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,8 +15,20 @@ import { AuthProvider } from '../providers/auth/auth';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import {LaunchNavigator} from '@ionic-native/launch-navigator'; 
-import { FireDataServiceProvider } from '../providers/fire-data-service/fire-data-service';
 import { InfoPage } from '../pages/info/info';
+import { CartPage } from '../pages/cart/cart';
+import { ProductsPage } from '../pages/products/products';
+
+
+//import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+//import { AngularFireDatabase } from 'angularfire2/database';
+//import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated'
+import { FireDataServiceProvider } from '../providers/fire-data-service/fire-data-service';
+import { ProductDetailsPage } from '../pages/product-details/product-details';
+import { SharedServiceProvider } from '../providers/shared-service/shared-service';
+import { CartServiceProvider } from '../providers/cart-service/cart-service';
+
 
 var config = {
   apiKey: "AIzaSyCDkcxmzhDUJX_1iGY5fgOKYn3yZ5J2Y4s",
@@ -32,10 +43,12 @@ var config = {
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
-    InfoPage
+    InfoPage, 
+    CartPage,
+    ProductsPage,
+    ProductDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -48,18 +61,22 @@ var config = {
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
-    InfoPage
+    InfoPage,
+    CartPage,
+    ProductsPage,
+    ProductDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+     LaunchNavigator,
     FireDataServiceProvider,
-     LaunchNavigator
+    SharedServiceProvider,
+    CartServiceProvider
   ]
 })
 export class AppModule {}

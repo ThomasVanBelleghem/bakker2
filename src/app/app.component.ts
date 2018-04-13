@@ -4,11 +4,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { InfoPage } from '../pages/info/info';
+import { CartPage } from '../pages/cart/cart';
+import { ProductsPage}  from '../pages/products/products';
+import { ProductDetailsPage} from '../pages/product-details/product-details';
 
 import{ AuthProvider} from '../providers/auth/auth';
+import{CartServiceProvider} from '../providers/cart-service/cart-service';
+import { SharedServiceProvider } from '../providers/shared-service/shared-service';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,8 +30,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Info', component: InfoPage }
+      { title: 'Info', component: InfoPage },
+      { title: 'Cart', component: CartPage },
+      { title: 'Products', component: ProductsPage }
+
     ];
 
   }
