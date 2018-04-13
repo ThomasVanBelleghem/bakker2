@@ -12,8 +12,12 @@ export class FireDataServiceProvider {
        return this.db.list("products").valueChanges();
       }
 
-  Get    
-  
+      update(id: any, foto:any){
+        this.db.object("fotos/" + id).update(foto);
+      }   
+  getFoto(id:any){
+    return this.db.list("fotos/" + id).valueChanges();
+  }
       
     
 }

@@ -9,6 +9,7 @@ import { InfoPage } from '../pages/info/info';
 import { CartPage } from '../pages/cart/cart';
 import { ProductsPage}  from '../pages/products/products';
 import { ProductDetailsPage} from '../pages/product-details/product-details';
+import {SettingPage} from '../pages/setting/setting'
 
 import{ AuthProvider} from '../providers/auth/auth';
 import{CartServiceProvider} from '../providers/cart-service/cart-service';
@@ -32,7 +33,9 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'Info', component: InfoPage },
       { title: 'Cart', component: CartPage },
-      { title: 'Products', component: ProductsPage }
+      { title: 'Products', component: ProductsPage },
+      { title: 'Setting', component: SettingPage }
+
 
     ];
 

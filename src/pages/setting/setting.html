@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  
+      <ion-title>Settings</ion-title>
+      <ion-buttons end>
+      <Button navPush="CartPage" ion-button >
+    </Button>
+    </ion-buttons>
+  
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+    
+        <ion-item *ngFor="let foto of fotos | async">
+              <img src="{{foto}}" alt="avatar">
+            
+
+          </ion-item>
+      </ion-list>
+    <button ion-button full (click)="takePicture()">Take Picture</button>
+</ion-content>

@@ -30,6 +30,8 @@ import { SharedServiceProvider } from '../providers/shared-service/shared-servic
 import { CartServiceProvider } from '../providers/cart-service/cart-service';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
 
+import { Camera } from '@ionic-native/camera';
+import { SettingPage } from '../pages/setting/setting';
 
 var config = {
   apiKey: "AIzaSyCDkcxmzhDUJX_1iGY5fgOKYn3yZ5J2Y4s",
@@ -50,7 +52,8 @@ var config = {
     CartPage,
     ProductsPage,
     ProductDetailsPage,
-    ForgotPassPage
+    ForgotPassPage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -69,13 +72,15 @@ var config = {
     CartPage,
     ProductsPage,
     ProductDetailsPage,
-    ForgotPassPage
+    ForgotPassPage,
+    SettingPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    Camera,
      LaunchNavigator,
     FireDataServiceProvider,
     SharedServiceProvider,
