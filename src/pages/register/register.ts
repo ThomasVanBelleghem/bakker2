@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 
+
 /**
  * Generated class for the RegisterPage page.
  *

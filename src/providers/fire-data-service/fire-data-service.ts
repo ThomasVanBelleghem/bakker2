@@ -11,5 +11,9 @@ export class FireDataServiceProvider {
   getAll(){
        return this.db.list("products").valueChanges();
       }
+
+  Get    
+  
+      
     
 }
