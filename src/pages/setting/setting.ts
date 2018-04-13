@@ -63,6 +63,23 @@ export class SettingPage {
     });
   }
 
+  newEmail(email:string){
+    var user = this.authService.afAuth.auth.currentUser;
+    user.updateEmail(email).then(function(){
+      console.log("succes");
+    }).catch(function(error){
+      console.log("error");
+    })
+  }
+  newPass(Password:string){
+    var user = this.authService.afAuth.auth.currentUser;
+    user.updatePassword(Password).then(function(){
+      console.log("succes");
+    }).catch(function(error){
+      console.log("error");
+    })
+  }
+
 
   
 }

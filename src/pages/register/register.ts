@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController, MenuController } 
 import { AuthProvider } from '../../providers/auth/auth';
 
 
+
 /**
  * Generated class for the RegisterPage page.
  *

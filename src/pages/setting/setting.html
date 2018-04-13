@@ -22,6 +22,22 @@
             
 
           </ion-item>
+
+         
+            
+          <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input  [(ngModel)]="email"  type="text"></ion-input>
+            </ion-item>
+            <button ion-button full (click)="newEmail(email)">Verander email</button>
+            
+          
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input  [(ngModel)]="password"  type="password"></ion-input>
+              
+            </ion-item>
+            <button ion-button full (click)="newPass(password)">Verander wachtwoord</button>
       </ion-list>
     <button ion-button full (click)="takePicture()">Take Picture</button>
 </ion-content>

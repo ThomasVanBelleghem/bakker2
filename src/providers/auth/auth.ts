@@ -45,7 +45,22 @@ export class AuthProvider {
      this.isRegisterSuccess= true;}
 
     )}
-  
+    newEmail(email:string){
+      var user = this.afAuth.auth.currentUser;
+      user.updateEmail(email).then(function(){
+        console.log("succes");
+      }).catch(function(error){
+        console.log("error");
+      })
+    }
+    newPass(Password:string){
+      var user = this.afAuth.auth.currentUser;
+      user.updatePassword(Password).then(function(){
+        console.log("succes");
+      }).catch(function(error){
+        console.log("error");
+      })
+    }
 
   logout() {
     this.afAuth.auth.signOut();
