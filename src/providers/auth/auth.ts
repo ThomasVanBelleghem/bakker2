@@ -65,7 +65,11 @@ export class AuthProvider {
     toast.onDidDismiss(() => {
       console.log('Dismissed toast', message);
     });
+    
 
     toast.present();
+  }
+  recover(email):void{
+    this.afAuth.auth.sendPasswordResetEmail(email);
   }
 }

@@ -28,6 +28,7 @@ import { FireDataServiceProvider } from '../providers/fire-data-service/fire-dat
 import { ProductDetailsPage } from '../pages/product-details/product-details';
 import { SharedServiceProvider } from '../providers/shared-service/shared-service';
 import { CartServiceProvider } from '../providers/cart-service/cart-service';
+import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
 
 
 var config = {
@@ -48,7 +49,8 @@ var config = {
     InfoPage, 
     CartPage,
     ProductsPage,
-    ProductDetailsPage
+    ProductDetailsPage,
+    ForgotPassPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ var config = {
     InfoPage,
     CartPage,
     ProductsPage,
-    ProductDetailsPage
+    ProductDetailsPage,
+    ForgotPassPage
   ],
   providers: [
     StatusBar,

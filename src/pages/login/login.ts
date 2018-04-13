@@ -7,6 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Menu } from 'ionic-angular/components/app/menu-interface';
+import {ForgotPassPage} from '../forgot-pass/forgot-pass';
 
 /**
  * Generated class for the LoginPage page.
@@ -57,5 +58,8 @@ export class LoginPage {
   }
   register(){
     this.navCtrl.push(RegisterPage);
+  }
+  resetPassword():void{
+    this.navCtrl.push(ForgotPassPage);
   }
 }
