@@ -38,13 +38,16 @@ export class AuthProvider {
   }
 
   register(email: string, password: string) {
-    this.afAuth.auth.createUserWithEmailAndPassword(email,password)
+    //this.afAuth.auth.createUserWithEmailAndPassword(email,password)
   return this.afAuth.auth.createUserWithEmailAndPassword(email,password)
      .then((result)=>{
        console.log("register result", result);
-     this.isRegisterSuccess= true;}
+     this.isRegisterSuccess= true;})
+     .catch((error)=>{
+           this.displayError(error,"Error during register.");
+          })
 
-    )}
+    }
   
 
   logout() {

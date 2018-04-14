@@ -42,6 +42,7 @@ export class RegisterPage {
         if(this.AuthService.isRegisterSuccess){
           this.AuthService.isRegisterSuccess=false;
           this.navCtrl.pop();
+          this.presentToast("Nieuwe gebruiker is aangemaakt");
         }
       });
     }else{
