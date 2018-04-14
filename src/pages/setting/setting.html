@@ -13,12 +13,21 @@
 
 <ion-content padding>
     <ion-list>
+
+    <ion-item>
+        <h1>{{this.user}}</h1>
+
+    </ion-item>
     
+
+
         <ion-item *ngFor="let foto of fotos | async">
               <img src="{{foto}}" alt="avatar">
             
 
           </ion-item>
+         
+
           <button ion-button full (click)="takePicture()">Maak een nieuwe profielfoto</button>
 
           <ion-item>

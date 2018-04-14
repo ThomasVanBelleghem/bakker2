@@ -22,6 +22,7 @@ export class SettingPage {
 
   fotos: Observable<any[]>;
  avatarData="";
+ user : any;
 
   readonly options: CameraOptions = {
     quality: 100,
@@ -46,6 +47,11 @@ export class SettingPage {
     }, (error) => {
       console.log("Didn't get any data", error);
     })
+   
+    this.user = this.authService.afAuth.auth.currentUser.email;
+
+    
+
   }
   takePicture() {
     this.camera.getPicture(this.options).then((imageData) => {
@@ -86,6 +92,7 @@ export class SettingPage {
 
     toast.present();
   }
+  
 
 
   

@@ -36,11 +36,9 @@ export class ProductsPage {
      private db: FireDataServiceProvider,
      private viewCtrl: ViewController,
     afAuth: AngularFireAuth,
-    //public cartService: CartServiceProvider,
     public authService: AuthProvider
     ) {
       this.products = db.getAll();
-   // cartService.loadCartList(this.authService.getLoggedUID());
   }
   
   
