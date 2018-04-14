@@ -54,4 +54,5 @@ export class CartPage {
     this.navCtrl.pop();
 }
 
+
 }

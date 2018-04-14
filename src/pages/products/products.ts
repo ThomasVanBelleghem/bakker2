@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 import { CartPage} from '../cart/cart';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, FirebaseAppProvider } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import {  } from 'angularfire2/database';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
@@ -28,15 +28,16 @@ import {ProductDetailsPage} from '../product-details/product-details';
   templateUrl: 'products.html',
 })
 export class ProductsPage {
-
+  carts: Observable<any[]>;
   products: Observable<any>;
+  product:any;
 
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private db: FireDataServiceProvider,
      private viewCtrl: ViewController,
     afAuth: AngularFireAuth,
-    public authService: AuthProvider
+    public authProvider: AuthProvider, 
     ) {
       this.products = db.getAll();
   }
@@ -45,14 +46,28 @@ export class ProductsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductsPage');
+    this.carts = this.db.getCart(this.authProvider.getLoggedUID());
+    this.carts.subscribe((result) => {
+      console.log("got this data from provider", result);
+    }, (error) => {
+      console.log("Didn't get any data", error);
+    })
   }
   showDetails(product)  : void  {
     this.navCtrl.push(ProductDetailsPage,product);
   }
 
   addToCart(product)  : void  {
-  // this.cartService.addCartItem(this.authService.getLoggedUID(), product);
+    
+    console.log(product);
+    let cart ={
+      productCar: product
+    }
+  
+    this.db.updateCart(this.authProvider.getLoggedUID(),cart);
   }
+
+
 
   openCart() : void {
     this.navCtrl.push(CartPage);

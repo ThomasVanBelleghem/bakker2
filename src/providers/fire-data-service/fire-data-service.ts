@@ -31,4 +31,5 @@ export class FireDataServiceProvider {
   updateCart(id: any, cart:any){
       this.db.object("carts/" + id).update(cart);
       }   
+      
 }
