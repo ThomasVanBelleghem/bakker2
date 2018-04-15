@@ -1,0 +1,9 @@
+inloggegevens.
+
+email:"thomas@test.be",
+password:"wachtwoord"
+
+email:"floriaan@floriaal.be",
+password: "floriaan"
+
+je kan zelf een account aanmaken. als het een bestaand adres is kan je je wachtwoord resetten.
